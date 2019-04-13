@@ -6,6 +6,13 @@
         .side-header
             .main-user 
                 seo 
+        %ul.settings
+            %li.list
+            = link_to do
+                %i.fas.fa-cog.icon
+            %li.list
+            = link_to do
+                %i.fas.fa-edit.icon
         .groups
             .group 
                 sample
@@ -40,3 +47,14 @@
                         2019/04/12 14:58:46
                 .text
                     Good bye world!
+        .form
+            %form
+            .new-message
+                .input-box
+                    .input-box__text
+                    %input{type: 'textarea', placeholder: 'type a message', :style => "height:50px"}
+                        .image-lable
+                        %i.far.fa-image.icon{:style => "font-size:20px;"}
+                .input-submit
+                %input{type: 'submit', value: 'Send', :style => "background-color:#38AEF0;color:white;line-height:50px;"}
+

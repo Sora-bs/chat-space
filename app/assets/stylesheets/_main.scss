@@ -2,7 +2,7 @@
     box-sizing: border-box;
     height: 100vh;
     width: calc(100vw - 300px);   
-    padding: 0 40px;  //適応しない
+    padding: 0 40px;
     float: left;
             .main-header {
                 height: 100px;
@@ -51,5 +51,32 @@
 
                             }
                     }
+            }
+            .form {
+                background-color: #ddd;
+                box-sizing: border-box;
+                // height: 90px;
+                padding: 20px 40px;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                .new-message {
+                    display: flex;
+                    .input-box {
+                        &__text {
+                            width: 100%;                        
+                            padding: 0 40px 0 10px;
+                            color: $main-color;
+                            border-style: none;
+                            .image-label {
+                                font-size: 20px;
+                                line-height: 50px;
+                            }
+                        }
+                    }
+                    .input.submit {
+                        line-height: 50px;
+                    }
+                }
             }
 }
