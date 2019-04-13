@@ -1,0 +1,55 @@
+.main-content {
+    box-sizing: border-box;
+    height: 100vh;
+    width: calc(100vw - 300px);   
+    padding: 0 40px;  //適応しない
+    float: left;
+            .main-header {
+                height: 100px;
+                width: 100%;
+                border-bottom: 1px solid #eeeeee;
+            }
+                        .main-group-name {
+                            font-size: 20px;
+                            color: #333333;
+                            padding: 35px 0 15px;
+                            float: left;
+                        }
+                        .edit {
+                            float: right;
+                            border: 1px solid #38AEF0;
+                            padding: 0 20px;
+                            margin: 28px 0;
+                            line-height: 40px;
+                            color: #38AEF0;
+                        }
+                        .members {
+                            font-size: 12px;
+                            color: #999999;
+                            padding-bottom: 46px;
+                        }
+            .messages {
+                    .message {
+                            .upper-info{    
+                                        .group-user {
+                                            font-size: 16px;
+                                            color: $main-color;
+                                            font-weight: bold;
+                                            padding-bottom: 10px;
+                                            float: left;
+                                        }
+                            .date {
+                                font-size: 12px;
+                                color: #999999;
+                            }
+                    }
+                            .text {
+                                font-size: 14px;
+                                color: $main-color;
+                                padding-bottom: 40px;
+                                @include clearfix;  
+
+                            }
+                    }
+            }
+}

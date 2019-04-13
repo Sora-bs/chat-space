@@ -2,37 +2,41 @@
     %h1 グループを作成しました
 
 #contents
-    .left-content
+    .side-content
         .side-header
             .main-user 
-                %p seo 
+                seo 
         .groups
             .group 
-                %p sample
+                sample
             .group-message
-                %p Good by world!
+                Good by world!
             .group 
-                %p sample.group
+                sample.group
             .group-message
-                %p hello!
-    .right-content
+                hello!
+    .main-content
         .main-header
             .main-group-name 
-                %p sample
+                sample
+            .edit
+                Edit
             .members 
-                %p Menbers: seo neko  
+                Members: seo neko  
         .messages
             .message
-                .group-user
-                    %p  seo
-                .date
-                    %p 2019/04/12 14:57:46
+                %ul.upper-info
+                    %li.group-user
+                        seo
+                    %li.date
+                        2019/04/12 14:57:46
                 .text
-                    %p Hello world!
+                    Hello world!
             .message
-                .gruop-user 
-                    %p neko
-                .date 
-                    %p 2019/04/12 14:58:46
+                %ul.upper-info
+                    %li.group-user 
+                        neko
+                    %li.date 
+                        2019/04/12 14:58:46
                 .text
-                    %p Good bye world!
+                    Good bye world!
