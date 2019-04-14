@@ -4,15 +4,15 @@
 #contents
     .side-content
         .side-header
-            .main-user 
+            .side-header-username 
                 seo 
-        %ul.settings
-            %li.list
-            = link_to do
-                %i.fas.fa-cog.icon
-            %li.list
-            = link_to do
-                %i.fas.fa-edit.icon
+            .side-header-usermenu
+                %li.list
+                = link_to do
+                    %i.fa.fa-cog.icon
+                %li.list
+                = link_to do
+                    %i.fa.fa-pencil-square-o.icon
         .groups
             .group 
                 sample
@@ -51,10 +51,8 @@
             %form
             .new-message
                 .input-box
-                    .input-box__text
-                    %input{type: 'textarea', placeholder: 'type a message', :style => "height:50px"}
-                        .image-lable
-                        %i.far.fa-image.icon{:style => "font-size:20px;"}
+                    %input{type: 'textarea', placeholder: 'type a message', :class => "input-box__text"}
+                    %i.far.fa-image.icon{:class => "image-lable"}
                 .input-submit
-                %input{type: 'submit', value: 'Send', :style => "background-color:#38AEF0;color:white;line-height:50px;"}
+                %input{type: 'submit', value: 'Send', :class => "input-submit"}
 
