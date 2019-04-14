@@ -20,7 +20,6 @@
     box-sizing: border-box;
     height: 100vh;
     width: 300px;
-    padding: 0 20px;
     float: left;
     @include clearfix;
             .side-header{
@@ -30,26 +29,34 @@
                 line-height: 100px;
                 box-sizing: border-box;
                 font-size: 16px;
-                    .main-user {
-                        font-weight: bold;
-                        float: left;
-                    }
-                    .settings {
-                        float: right;                 
-                        .icon {
-                            color: $side-color;
+                padding: 0 20px;
+            &-username {
+                font-weight: bold;
+                float: left;
+            }
+            &-usermenu {
+                float: right;
+                        .list {
+                            float: left;                                
+                            .icon {
+                                margin-left: 20px;
+                                color: $side-color;
+                            }
                         }
                     }
             }                
             .groups {
-                    .group {
-                        font-size: 15px;
-                        padding: 20px 0 5px;
-                    }
-                    .group-message {
-                        font-size: 11px;
-                        padding-bottom: 40px;
-                    }
+                .group {
+                    padding: 0 20px;
+                &-name {
+                    font-size: 15px;
+                    padding: 20px 0 5px;
+                }
+                &-message {
+                    font-size: 11px;
+                    padding-bottom: 40px;
+                }
+                }
             }
 }
 
