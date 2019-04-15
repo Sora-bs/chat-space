@@ -1,0 +1,62 @@
+.header
+    %h1 グループを作成しました
+
+#contents
+    .side-content
+        .side-header
+            .side-header-username 
+                seo 
+            %ul.side-header-usermenu
+                %li.list
+                    = link_to do
+                        %i.fa.fa-pencil-square-o.icon
+                %li.list
+                    = link_to do
+                        %i.fa.fa-cog.icon
+        .groups
+            .group 
+                .group-name
+                    sample
+                .group-message
+                    Good by world!
+                .group-name
+                    sample.group
+                .group-message
+                    hello!
+    .main-content
+        .main-header
+            .main-header-group
+                .main-header-group-name 
+                    %h2 sample
+                %ul.group-member
+                    Members : 
+                    %li.member seo 
+                    %li.member neko 
+            %a
+                .edit
+                    Edit
+        .messages
+            .message
+                .upper-info
+                    %p.group-user
+                        seo
+                    %p.date
+                        2019/04/12 14:57:46
+                .text
+                    Hello world!
+            .message
+                .upper-info
+                    %p.group-user 
+                        neko
+                    %p.date 
+                        2019/04/12 14:58:46
+                .text
+                    Good bye world!
+        .form
+            %form
+                .input-box
+                    %input.input-box__text{type: 'textarea', placeholder: 'type a message'}
+                    %lable.image-label
+                        %i.fa.fa-picture-o.picture
+                    %input.input-submit{type: 'submit', value: 'Send'}
+
