@@ -33,6 +33,7 @@
             height: 40px;
             line-height: 40px;
             color: #38AEF0;
+            cursor: pointer;
             }
         }
     .messages {
@@ -80,11 +81,6 @@
                                 position: absolute;
                                 top: 10px;
                                 left: 10px;
-                                background-color: #38AEF0;
-                                cursor: pointer;
-                                .icon {
-                                    color: #38AEF0;
-                                }
                         }
                     }
                 }

@@ -23,7 +23,6 @@
     height: 100vh;
     width: 300px;
     float: left;
-    @include clearfix;
             .side-header{
                 background-color: #253141;
                 height: 100px;
@@ -44,7 +43,7 @@
                         margin-left: 10px; 
                         float: left;                           
                         .icon {
-                            display: inline-block;
+                            color: $side-color;
                             }
                         }
                     }
