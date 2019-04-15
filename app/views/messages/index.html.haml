@@ -28,8 +28,10 @@
             .main-header-group
                 .main-header-group-name 
                     %h2 sample
-                .main-header-group-member
-                    Members: seo neko 
+                %ul.group-member
+                    Members : 
+                    %li.member  seo 
+                    %li.member  neko 
             %a
                 .edit
                     Edit
@@ -51,10 +53,9 @@
                 .text
                     Good bye world!
         .form
-            %form.new-message
+            %form
                 .input-box
                     %input.input-box__text{type: 'textarea', placeholder: 'type a message'}
                         %label.image-label
                             %i.fa.fa-picture-o.icon
                     %input.input-submit{type: 'submit', value: 'Send'}
-
