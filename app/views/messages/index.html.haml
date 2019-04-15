@@ -12,7 +12,7 @@
                     %i.fa.fa-pencil-square-o.icon
                 %li.list
                 = link_to do
-                    %i.fa.fa-cog.icon
+                    %i.fa.fa-cog.icon.fa-spin
         .groups
             .group 
                 .group-name
@@ -35,27 +35,26 @@
                     Edit
         .messages
             .message
-                %ul.upper-info
-                    %li.group-user
+                .upper-info
+                    %p.group-user
                         seo
-                    %li.date
+                    %p.date
                         2019/04/12 14:57:46
                 .text
                     Hello world!
             .message
-                %ul.upper-info
-                    %li.group-user 
+                .upper-info
+                    %p.group-user 
                         neko
-                    %li.date 
+                    %p.date 
                         2019/04/12 14:58:46
                 .text
                     Good bye world!
         .form
-            %form
-            .new-message
+            %form.new-message
                 .input-box
-                    %input{type: 'textarea', placeholder: 'type a message', :class => "input-box__text"}
-                    %i.far.fa-image.icon{:class => "image-lable"}
-                .input-submit
-                %input{type: 'submit', value: 'Send', :class => "input-submit"}
+                    %input.input-box__text{type: 'textarea', placeholder: 'type a message'}
+                        %label.image-label
+                            %i.fa.fa-picture-o.icon
+                    %input.input-submit{type: 'submit', value: 'Send'}
 
