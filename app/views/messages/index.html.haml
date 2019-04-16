@@ -5,13 +5,13 @@
     .side-content
         .side-header
             .side-header-username 
-                seo 
+                = current_user.name 
             %ul.side-header-usermenu
                 %li.list
                     = link_to do
                         %i.fa.fa-pencil-square-o.icon
                 %li.list
-                    = link_to do
+                    = link_to edit_user_path(current_user) do
                         %i.fa.fa-cog.icon
         .groups
             .group 
