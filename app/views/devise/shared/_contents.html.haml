@@ -11,13 +11,15 @@
                     = link_to edit_user_path(current_user) do
                         %i.fa.fa-cog.icon
         .groups
-            .group
-                - current_user.groups.each do |group| 
-                    = link_to group_messages_path(group) do
-                        .group-name
-                            = group.name
-                        .group-message
-                            メッセージはまだありません。
+            .group 
+                .group-name
+                    sample
+                .group-message
+                    Good by world!
+                .group-name
+                    sample.group
+                .group-message
+                    hello!
     .main-content
         .main-header
             .main-header-group
