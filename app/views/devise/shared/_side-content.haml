@@ -1,0 +1,20 @@
+#contents
+    .side-content
+        .side-header
+            .side-header-username 
+                = current_user.name 
+            %ul.side-header-usermenu
+                %li.list
+                    = link_to new_group_path do
+                        %i.fa.fa-pencil-square-o.icon
+                %li.list
+                    = link_to edit_user_path(current_user) do
+                        %i.fa.fa-cog.icon
+        .groups
+            .group
+                - current_user.groups.each do |group| 
+                    = link_to group_messages_path(group) do
+                        .group-name
+                            = group.name
+                        .group-message
+                            メッセージはまだありません。
