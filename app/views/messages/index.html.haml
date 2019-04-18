@@ -17,16 +17,18 @@
                         .group-name
                             = group.name
                         .group-message
-                            メッセージはまだありません。
+                            = group.show_last_message
     .main-content
         .main-header
             .main-header-group
                 .main-header-group-name 
-                    %h2 sample
+                    %h2
+                        = @group.name
                 %ul.group-member
                     Members : 
-                    %li.member seo 
-                    %li.member neko 
+                    %li.member
+                        - @group.users.each do |user|
+                            = user.name
             %a
                 .edit
                     Edit

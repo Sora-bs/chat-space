@@ -45,10 +45,14 @@
                 &-name {
                     font-size: 15px;
                     padding: 20px 0 5px;
+                    color: $side-color;
+                    text-decoration: none;
                 }
                 &-message {
                     font-size: 11px;
                     padding-bottom: 40px;
+                    color: $side-color;
+                    text-decoration: none;
                 }
                 }
             }
