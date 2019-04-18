@@ -17,41 +17,28 @@
                         .group-name
                             = group.name
                         .group-message
-                            メッセージはまだありません。
+                            = group.show_last_message
     .main-content
         .main-header
             .main-header-group
                 .main-header-group-name 
-                    %h2 sample
+                    %h2
+                        = @group.name
                 %ul.group-member
                     Members : 
-                    %li.member seo 
-                    %li.member neko 
+                    %li.member
+                        - @group.users.each do |user|
+                            = user.name
             %a
                 .edit
                     Edit
         .messages
-            .message
-                .upper-info
-                    %p.group-user
-                        seo
-                    %p.date
-                        2019/04/12 14:57:46
-                .text
-                    Hello world!
-            .message
-                .upper-info
-                    %p.group-user 
-                        neko
-                    %p.date 
-                        2019/04/12 14:58:46
-                .text
-                    Good bye world!
+            = render @messages
         .form
-            %form
+            = form_for [@group, @message] do |f|
                 .input-box
-                    %input.input-box__text{type: 'textarea', placeholder: 'type a message'}
-                    %lable.image-label
-                        %i.fa.fa-picture-o.picture
-                    %input.input-submit{type: 'submit', value: 'Send'}
-
+                    = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+                    = label :image, class: 'image-lable' do
+                        = fa_icon 'picture-o', class: 'picture'
+                        = f.file_field :image, class: 'hidden'
+                    = f.submit 'Send', class: 'input-submit'
