@@ -29,7 +29,7 @@
                     %li.member
                         - @group.users.each do |user|
                             = user.name
-            = link_to "/groups/#{current_user.id}/edit" do
+            = link_to edit_group_path(@group.id) do
                 .edit
                     Edit
 
