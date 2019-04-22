@@ -29,9 +29,10 @@
                     %li.member
                         - @group.users.each do |user|
                             = user.name
-            %a
+            = link_to "/groups/#{current_user.id}/edit" do
                 .edit
                     Edit
+
         .messages
             = render @messages
         .form
