@@ -43,7 +43,7 @@ $(function () {
         $('.input-submit').prop('disabled', false);
       })
       .fail(function () {
-        alert('error');
+        alert('メッセージを入力してください。');
         $('.input-box__text').val('');
         $('.input-submit').prop('disabled', false);
       })
