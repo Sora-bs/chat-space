@@ -29,16 +29,17 @@
                     %li.member
                         - @group.users.each do |user|
                             = user.name
-            %a
+            = link_to edit_group_path(@group.id) do
                 .edit
                     Edit
+
         .messages
             = render @messages
         .form
             = form_for [@group, @message] do |f|
                 .input-box
                     = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
-                    = label :image, class: 'image-lable' do
+                    = f.label :image, class: 'image-lable' do
                         = fa_icon 'picture-o', class: 'picture'
                         = f.file_field :image, class: 'hidden'
                     = f.submit 'Send', class: 'input-submit'
