@@ -36,11 +36,11 @@ $(function () {
       contentType: false,
     })
       .done(function (message) {
-        var html = buildHtml(message);
-        $('.messages').append(html);
+        var html = buildHtml(message);// 非同期でメッセージを追加
+        $('.messages').append(html);// 実際に追加する
         $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight }, 'fast');
-        $('.input-box__text').val('');
-        $('.input-submit').prop('disabled', false);
+        $('.input-box__text').val('');//テキストフィールドを空にする
+        $('.input-submit').prop('disabled', false);//送信ボタンを有効にする
       })
       .fail(function () {
         alert('メッセージを入力してください。');
