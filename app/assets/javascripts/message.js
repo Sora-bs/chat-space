@@ -1,7 +1,7 @@
 $(function () {
   function buildHtml(message) {
     var Sendimage = ""
-    message.image ? `<img src="${message.image}" class: 'text-image' >` : Sendimage = ""
+    message.image ? Sendimage = `<img src="${message.image}" class: 'text-image' >` : Sendimage = ""
     var new_message = `
                       <div class= "message">
                         <div class= "upper-info">
@@ -17,7 +17,7 @@ $(function () {
                             ${message.content}
                           </p>
                             ${Sendimage}
-                          </div>
+                        </div>
                       </div>
                       `;
     return new_message;
