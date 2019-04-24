@@ -1,0 +1,6 @@
+#chat-group-user.chat-group-user.clearfix
+  %p.chat-group-user__name
+  = user.name
+  = hidden_field_tag('group[user_ids][]', user.id)
+  .user-search-remove.chat-group-user__btn.chat-group-user__btn--remove
+    削除
