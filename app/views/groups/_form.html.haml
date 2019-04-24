@@ -22,10 +22,11 @@
       %label.chat-group-form__label{:for => "chat_group_チャットメンバー"} チャットメンバー
     .chat-group-form__field--right
       #chat-group-users
-        .chat-group-user.clearfix{id: 'chat-group-user-22'}
-          -# = f.hidden_field :name chat_group[user_ids][], :value '22'
-          %p.chat-group-user__name
-            = @group.users.name
+        #chat-group-user.chat-group-user.clearfix
+          = f.hidden_field :user_id, name: "group[user_ids][]", value: "#{current_user.id}"
+          = current_user.name
+        = render partial: 'user', collection: @group.users.where.not(id: current_user.id)                                          
+            
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
