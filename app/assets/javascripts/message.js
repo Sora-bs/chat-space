@@ -6,10 +6,10 @@ $(function () {
                       <div class= "message">
                         <div class= "upper-info">
                           <p class= "group-user">
-                            ${message.name}
+                            ${message.user_name}
                           </p>
                           <p class= "date">
-                            ${message.time}
+                            ${message.created_at}
                           </p>
                         </div>
                         <div class= "text">
@@ -48,4 +48,91 @@ $(function () {
         $('.input-submit').prop('disabled', false);
       })
   })
+
+  var buildMessageHTML = function (message) {
+    if (message.content && message.image.url) {
+      //data-idが反映されるようにしている
+      var html = `<div class="message" data-id=  ${message.id}  > 
+                    <div class="upper-message" > 
+                      <div class="upper-message__user-name" > 
+                        ${message.user_name} 
+                      </div > 
+                      <div class="upper-message__date" > 
+                        ${message.created_at} 
+                      </div > 
+                    </div > 
+                    <div class="lower-message" > 
+                      <p class="lower-message__content" > 
+                        ${message.content} 
+                      </p > 
+                      <img src="  ${message.image.url}  " class="lower-message__image" > 
+                    </div > 
+                  </div >`
+    } else if (message.content) {
+      //同様に、data-idが反映されるようにしている
+      var html = `<div class="message" data-id=  ${message.id}  > 
+                    <div class="upper-message" > 
+                      <div class="upper-message__user-name" > 
+                        ${message.user_name} 
+                      </div > 
+                      <div class="upper-message__date" > 
+                      ${message.created_at} 
+                      </div > 
+                    </div > 
+                    <div class="lower-message" > 
+                      <p class="lower-message__content" > 
+                        ${message.content} 
+                      </p > 
+                    </div > 
+                  </div >`
+    } else if (message.image.url) {
+      //同様に、data-idが反映されるようにしている
+      var html = `<div class="message" data-id=  ${message.id}  > 
+                    <div class="upper-message" > 
+                      <div class="upper-message__user-name" > 
+                        ${message.user_name} 
+                      </div > 
+                      <div class="upper-message__date" > 
+                        ${message.created_at} 
+                      </div > 
+                    </div > 
+                    <div class="lower-message" > 
+                      <img src="  ${message.image.url}  " class="lower-message__image" > 
+                    </div > 
+                  </div >`
+    };
+    return html;
+  };
+
+  // var reloadMessages = function () {
+  //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
+  var text = $("#text")
+  last_message_id = ("message_id : " + text.data('message_id'))
+  alert(last_message_id);
+  $.ajax({
+    //ルーティングで設定した通りのURLを指定
+    url: "/groups/group_id/api/messages/",
+    //ルーティングで設定した通りhttpメソッドをgetに指定
+    type: 'get',
+    dataType: 'json',
+    //dataオプションでリクエストに値を含める
+    data: { id: last_message_id }
+  })
+  console.log('aaa')
+    .done(function (messages) {
+      //追加するHTMLの入れ物を作る
+      var insertHTML = '';
+      //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
+      messages.foerEach(function (message) {
+        insertHTML += buildMessageHTML(message)
+      })
+      //メッセージが入ったHTMLを取得
+      insertHTML.text()
+      //メッセージを追加
+      insertHTML.append()
+    })
+    .fail(function () {
+      alert('自動更新に失敗しました。');
+    });
+  // };
 })
