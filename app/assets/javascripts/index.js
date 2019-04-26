@@ -28,7 +28,6 @@ $(document).on('turbolinks:load', function () {
     }
 
     $("#user-search-field").on("keyup", function () {
-      console.log('aaa')
       var input = $(this).val();
       $.ajax({
         type: 'GET',
