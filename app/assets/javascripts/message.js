@@ -1,8 +1,8 @@
 $(document).on('turbolinks:load', function () {
   $(function () {
     function buildHtml(message) {
-      var Sendimage = ""
-      message.image ? Sendimage = `<img src="${message.image}" class: 'text-image' >` : Sendimage = ""
+      var sendImage = ""
+      message.image ? sendImage = `<img src="${message.image}" class: 'text-image' >` : sendImage = ""
       var new_message = `
                       <div class= "message" data-id="${message.id}">
                         <div class= "upper-info">
@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function () {
                           <p class= "text-message">
                             ${message.content}
                           </p>
-                            ${Sendimage}
+                            ${sendImage}
                         </div>
                       </div>
                       `;
@@ -65,11 +65,9 @@ $(document).on('turbolinks:load', function () {
           var insertHTML = '';  //追加するHTMLの入れ物
           //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
           messages.forEach(function (message) {
-            if (message.id > last_message_id) {
-              insertHTML = buildHtml(message);  //メッセージが入ったHTMLを取得
-              $('.messages').append(insertHTML);  //メッセージを追加
-              $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight }, 'fast');
-            };
+            insertHTML = buildHtml(message);  //メッセージが入ったHTMLを取得
+            $('.messages').append(insertHTML);  //メッセージを追加
+            $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight }, 'fast');
           });
         })
         .fail(function () {
