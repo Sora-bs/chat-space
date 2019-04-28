@@ -74,6 +74,6 @@ $(document).on('turbolinks:load', function () {
           alert('自動更新に失敗しました。');
         });
     };
-    setInterval(reloadMessages, 3000);
+    setInterval(reloadMessages, 5000);
   });
 });
