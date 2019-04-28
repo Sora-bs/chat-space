@@ -51,28 +51,30 @@ $(document).on('turbolinks:load', function () {
     })
 
     var reloadMessages = function () {
-      //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-      last_message_id = $('.message').last().data('id')
-      //ブラウザ上の最後のidを取得、last()がないと最初のmessage_idが呼び出される
-      var groupId = location.pathname.split('/')[2]
-      $.ajax({
-        url: `/groups/${groupId}/api/messages`, // 変数使用時''でなく``を使う
-        type: 'GET',
-        dataType: 'json',
-        data: { id: last_message_id }
-      })
-        .done(function (messages) {
-          var insertHTML = '';  //追加するHTMLの入れ物
-          //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
-          messages.forEach(function (message) {
-            insertHTML = buildHtml(message);  //メッセージが入ったHTMLを取得
-            $('.messages').append(insertHTML);  //メッセージを追加
-            $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight }, 'fast');
-          });
+      if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+        //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
+        last_message_id = $('.message').last().data('id')
+        //ブラウザ上の最後のidを取得、last()がないと最初のmessage_idが呼び出される
+        var groupId = location.pathname.split('/')[2]
+        $.ajax({
+          url: `/groups/${groupId}/api/messages`, // 変数使用時''でなく``を使う
+          type: 'GET',
+          dataType: 'json',
+          data: { id: last_message_id }
         })
-        .fail(function () {
-          alert('自動更新に失敗しました。');
-        });
+          .done(function (messages) {
+            var insertHTML = '';  //追加するHTMLの入れ物
+            //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
+            messages.forEach(function (message) {
+              insertHTML = buildHtml(message);  //メッセージが入ったHTMLを取得
+              $('.messages').append(insertHTML);  //メッセージを追加
+              $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight }, 'fast');
+            });
+          })
+          .fail(function () {
+            alert('自動更新に失敗しました。');
+          });
+      };
     };
     setInterval(reloadMessages, 5000);
   });
